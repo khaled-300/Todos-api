@@ -1,6 +1,6 @@
 
-TodoList/**/obj
-TodoList/**/bin
-TodoList/**/.vs
+TodoList/*/obj
+TodoList/*/bin
+TodoList/*/.vs
 
 
