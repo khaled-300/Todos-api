@@ -19,8 +19,8 @@ namespace Todo.Controllers
         private static IList<Todos> TodoList = new List<Todos>
         {
             new Todos (Guid.NewGuid() ,"Freezing"),
-            new Todos (Guid.NewGuid(), "Bracing"),
-            new Todos (Guid.NewGuid() , "Chilly"),
+            new Todos (Guid.NewGuid() ,"Bracing"),
+            new Todos (Guid.NewGuid() ,"Chilly"),
             new Todos (Guid.NewGuid() ,"Cool"),
             new Todos (Guid.NewGuid() ,"Mild"),
             new Todos (Guid.NewGuid() ,"Warm"),
