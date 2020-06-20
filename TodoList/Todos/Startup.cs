@@ -10,8 +10,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Todos.Data;
+using Todos.Service;
 
-namespace Todo
+namespace Todos
 {
     public class Startup
     {
@@ -26,6 +28,9 @@ namespace Todo
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddSingleton<ITodoService, TodoService>();
+            services.AddSingleton<IRepository, InMemoryRepository>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

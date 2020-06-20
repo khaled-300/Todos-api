@@ -1,18 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.Metadata.Ecma335;
 using System.Threading.Tasks;
 
-namespace Todo.Model
+namespace Todos.Model
 {
-    public class Todos
+    public class Todo
     {
-        public Todos()
+        public Todo()
         {
 
         }
-        public Todos(Guid Id, string Message)
+        public Todo(Guid Id, string Message)
         {
             this.Id = Id;
             this.Message = Message;
@@ -20,6 +19,5 @@ namespace Todo.Model
         public Guid Id { get; set; }
 
         public string Message { get; set; }
-
     }
 }

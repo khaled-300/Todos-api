@@ -8,16 +8,16 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
 RUN mkdir Todo
-COPY ["Todo.csproj", "./"]
-RUN dotnet restore "Todo.csproj"
+COPY ["Todos.csproj", "./"]
+RUN dotnet restore "Todos.csproj"
 COPY . .
 WORKDIR "/src/"
-RUN dotnet build "Todo.csproj" -c Release -o /app/build
+RUN dotnet build "Todos.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "Todo.csproj" -c Release -o /app/publish
+RUN dotnet publish "Todos.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Todo.dll"]
+ENTRYPOINT ["dotnet", "Todos.dll"]
