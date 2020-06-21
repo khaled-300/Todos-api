@@ -2,5 +2,4 @@
 TodoList/*/obj
 TodoList/*/bin
 TodoList/*/.vs
-
-
+/TodoList/.vs/TodoList
