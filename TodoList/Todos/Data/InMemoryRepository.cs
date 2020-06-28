@@ -9,8 +9,7 @@ namespace Todos.Data
     public class InMemoryRepository : IRepository
     {
 
-
-        private static IList<Model.Todo> TodoList = new List<Model.Todo>
+        private static IList<Todo> TodoList = new List<Todo>
         {
             new Todo (Guid.NewGuid() ,"Freezing"),
             new Todo (Guid.NewGuid() ,"Bracing"),

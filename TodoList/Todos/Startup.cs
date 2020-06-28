@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
@@ -27,10 +29,14 @@ namespace Todos
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            string dbConnectionString = this.Configuration.GetConnectionString("SqlDatabase");
+
+            // Inject IDbConnection, with implementation from SqlConnection class.
+            services.AddTransient<IDbConnection>((db) => new SqlConnection(dbConnectionString));
+
             services.AddControllers();
             services.AddSingleton<ITodoService, TodoService>();
-            services.AddSingleton<IRepository, InMemoryRepository>();
-            
+            services.AddSingleton<IRepository, SqlRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

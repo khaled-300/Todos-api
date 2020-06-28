@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Todos.Model;
 using Todos.Service;
 
@@ -19,9 +20,13 @@ namespace Todos.Controllers
 
         private readonly ITodoService _todoService;
 
-        public TodosController(ITodoService TodoService)
+        private readonly IConfiguration _configuration;
+
+
+        public TodosController(ITodoService TodoService, IConfiguration configuration)
         {
             _todoService = TodoService;
+            _configuration = configuration;
         }
 
 
